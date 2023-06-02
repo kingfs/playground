@@ -1,0 +1,16 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.SUPERSECRET }}
+        run: |
+          echo "$SUPER_SECRET"
